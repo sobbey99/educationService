@@ -78,13 +78,15 @@ export default class Form {
     checkMailInputs() {
         const mailInputs = document.querySelector('[type="email"]');
 
-        mailInputs.forEach(input => {
-            input.addEventListener('keypress', function(e) {
-                if ( e.key.match(/[^a-z 0-9 @ \.]/ig) ) {
-                    e.preventDefault();
-                }
+        try {
+            mailInputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if ( e.key.match(/[^a-z 0-9 @ \.]/ig) ) {
+                        e.preventDefault();
+                    }
+                });
             });
-        });
+        } catch(e) {}
     }
 
     init() {
